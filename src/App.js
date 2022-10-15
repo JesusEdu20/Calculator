@@ -19,11 +19,11 @@ function App() {
     setInput("");
   }
 
-  /*const operation=()=>{
+  const operation=()=>{
 
     setInput( new Function('return ' + input)());
     
-  }*/
+  }
 
 
   return (
@@ -55,7 +55,7 @@ function App() {
           <Boton handler={addInput}>*</Boton>
         </div>
         <div className='fila'>
-          <Boton handler={addInput}>=</Boton>
+          <Boton handler={operation}>=</Boton>
           <Boton handler={addInput}>0</Boton>
           <Boton handler={addInput}>.</Boton>
           <Boton handler={addInput}>/</Boton>
