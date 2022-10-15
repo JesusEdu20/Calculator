@@ -3,11 +3,11 @@ import './App.css';
 import Boton from './components/button';
 import Screen from './components/screen.js';
 import ButtonClear from './components/buttonClear';
-import {useState, useEffect, useRef} from "react";
+import {useState} from "react";
 
 function App() {
 
-  const inputRef= useRef();
+
 
   const [input, setInput]= useState("");
 
@@ -30,7 +30,7 @@ function App() {
     <div className="App">
       <div className='calculator-container'>
       
-        <Screen input={input} ref={inputRef}/>
+        <Screen input={input} />
         
         <div className='fila'>
           <Boton handler={addInput}>1</Boton>
