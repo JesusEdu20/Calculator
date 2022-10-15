@@ -1,25 +1,73 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Boton from './components/button';
+import Screen from './components/screen.js';
+import ButtonClear from './components/buttonClear';
+import {useState, useEffect, useRef} from "react";
 
 function App() {
+
+  const inputRef= useRef();
+
+  const [input, setInput]= useState("");
+
+   const addInput=(val)=>{
+      setInput(input+val)
+   }
+
+   const clear=()=>{
+    setInput("");
+  }
+
+  const operation=()=>{
+
+    setInput( new Function('return ' + input)());
+    
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='calculator-container'>
+      
+        <Screen input={input} ref={inputRef}/>
+        
+        <div className='fila'>
+          <Boton handler={addInput}>1</Boton>
+          <Boton handler={addInput}>2</Boton>
+          
+          <Boton handler={addInput}>3</Boton>
+          <Boton handler={addInput}>+</Boton>
+
+        </div>
+        
+        <div className='fila'>
+          <Boton handler={addInput}>4</Boton>
+          <Boton handler={addInput}>5</Boton>
+          <Boton handler={addInput}>6</Boton>
+          <Boton handler={addInput}>-</Boton> 
+        </div>
+
+        <div className='fila'>
+          <Boton handler={addInput}>7</Boton>
+          <Boton handler={addInput}>8</Boton>
+          <Boton handler={addInput}>9</Boton>
+          <Boton handler={addInput}>*</Boton>
+        </div>
+        <div className='fila'>
+          <Boton handler={operation}>=</Boton>
+          <Boton handler={addInput}>0</Boton>
+          <Boton handler={addInput}>.</Boton>
+          <Boton handler={addInput}>/</Boton>
+        </div>
+
+       <ButtonClear clearHandler={clear}>Clear</ButtonClear>
+       
+        
+      </div>
     </div>
   );
 }
 
 export default App;
+
