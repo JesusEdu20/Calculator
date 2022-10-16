@@ -1,6 +1,10 @@
+*{
+width: 100%;
+}
+
 .App{
   width: 100%;
-  min-width: 350px;
+  min-width: 370px;
   height: 100vh;
   display: flex;
   justify-content: center;

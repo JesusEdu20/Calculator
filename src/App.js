@@ -4,6 +4,7 @@ import Boton from './components/button';
 import Screen from './components/screen.js';
 import ButtonClear from './components/buttonClear';
 import {useState} from "react";
+import { evaluate } from 'mathjs'
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
 
   const operation=()=>{
 
-    setInput( new Function('return ' + input)());
+   if(input)setInput(evaluate(input))
     
   }
 
