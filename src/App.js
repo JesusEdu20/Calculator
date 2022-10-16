@@ -23,6 +23,7 @@ function App() {
   const operation=()=>{
 
    if(input)setInput(evaluate(input))
+   
     
   }
 
